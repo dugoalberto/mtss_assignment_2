@@ -5,8 +5,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 public class RomanPrinterTest {
     static RomanPrinter printer;
@@ -18,129 +16,167 @@ public class RomanPrinterTest {
 
     @Test
     public void testPrintI() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 1;
+        String res = " _____ \n" +
+        "|_   _|\n" +
+        "  | |  \n" +
+        "  | |  \n" +
+        " _| |_ \n" +
+        "|_____|\n";
+        //act
         String ascii_art_for_I = printer.print(arabic_number);
-        assertEquals(ascii_art_for_I, new String(" _____ \n" +
-                "|_   _|\n" +
-                "  | |  \n" +
-                "  | |  \n" +
-                " _| |_ \n" +
-                "|_____|\n"));
+        //assert
+        assertEquals(res, ascii_art_for_I);
     }
 
     @Test
     public void testPrintV() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 5;
+        String res = "__      __\n" +
+                    "\\ \\    / /\n" +
+                    " \\ \\  / / \n" +
+                    "  \\ \\/ /  \n" +
+                    "   \\  /   \n" +
+                    "    \\/    \n";
+        //act
         String ascii_art_for_V = printer.print(arabic_number);
-        assertEquals(ascii_art_for_V, new String("__      __\n" +
-                "\\ \\    / /\n" +
-                " \\ \\  / / \n" +
-                "  \\ \\/ /  \n" +
-                "   \\  /   \n" +
-                "    \\/    \n"));
+        //assert
+        assertEquals(res, ascii_art_for_V);
 
     }
 
     @Test
     public void testPrintX() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 10;
+        String res = "__   __\n" +
+        "\\ \\ / /\n" +
+        " \\ V / \n" +
+        "  > <  \n" +
+        " / . \\ \n" +
+        "/_/ \\_\\\n";
+        //act
         String ascii_art_for_X = printer.print(arabic_number);
-        assertEquals(ascii_art_for_X, new String("__   __\n" +
-                "\\ \\ / /\n" +
-                " \\ V / \n" +
-                "  > <  \n" +
-                " / . \\ \n" +
-                "/_/ \\_\\\n"));
+        //assert
+        assertEquals(res, ascii_art_for_X);
 
     }
 
     @Test
     public void testPrintL() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 50;
+        String res = " _      \n" +
+        "| |     \n" +
+        "| |     \n" +
+        "| |     \n" +
+        "| |____ \n" +
+        "|______|\n";
+        //act
         String ascii_art_for_L = printer.print(arabic_number);
-        assertEquals(ascii_art_for_L, new String(" _      \n" +
-                "| |     \n" +
-                "| |     \n" +
-                "| |     \n" +
-                "| |____ \n" +
-                "|______|\n"));
+        //assert
+        assertEquals(res , ascii_art_for_L);
 
     }
 
     @Test
     public void testPrintC() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 100;
+        String res = "  _____ \n" +
+        " / ____|\n" +
+        "| |     \n" +
+        "| |     \n" +
+        "| |____ \n" +
+        " \\_____|\n";
+        //act
         String ascii_art_for_C = printer.print(arabic_number);
-        assertEquals(ascii_art_for_C, new String("  _____ \n" +
-                " / ____|\n" +
-                "| |     \n" +
-                "| |     \n" +
-                "| |____ \n" +
-                " \\_____|\n"));
+        //assert
+        assertEquals(res, ascii_art_for_C);
 
     }
 
     @Test
     public void testPrintD() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 500;
+        String res = " _____  \n" +
+        "|  __ \\ \n" +
+        "| |  | |\n" +
+        "| |  | |\n" +
+        "| |__| |\n" +
+        "|_____/ \n";
+        //act
         String ascii_art_for_D = printer.print(arabic_number);
-        assertEquals(ascii_art_for_D, new String(" _____  \n" +
-                "|  __ \\ \n" +
-                "| |  | |\n" +
-                "| |  | |\n" +
-                "| |__| |\n" +
-                "|_____/ \n"));
+        //assert
+        assertEquals(res , ascii_art_for_D );
 
     }
 
     @Test
     public void testPrintM() throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //arrange
         int arabic_number = 1000;
+        String res = " __  __ \n" +
+        "|  \\/  |\n" +
+        "| \\  / |\n" +
+        "| |\\/| |\n" +
+        "| |  | |\n" +
+        "|_|  |_|\n";
+        //act
         String ascii_art_for_M = printer.print(arabic_number);
-        assertEquals(ascii_art_for_M, new String(" __  __ \n" +
-                "|  \\/  |\n" +
-                "| \\  / |\n" +
-                "| |\\/| |\n" +
-                "| |  | |\n" +
-                "|_|  |_|\n"));
+        //assert
+        assertEquals(res,ascii_art_for_M );
 
     }
 
     @Test
     public void testNumberZeroAsciiArt()
             throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
+        //Arrange
         int arabic_number = 0;
+        String res = "";
+        //act
         String ascii_art_for_zero = printer.print(arabic_number);
-        assertEquals(ascii_art_for_zero, new String(""));
+        //assert
+        assertEquals(ascii_art_for_zero, res);
     }
 
     @Test
     public void testLettersCombination511()
             throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
-        int arabic_number = 511;
-        String ascii_art_for_511 = printer.print(arabic_number);
-        assertEquals(ascii_art_for_511,
-                new String(" _____  " + "__   __" + " _____ \n" +
-                        "|  __ \\ " + "\\ \\ / /" + "|_   _|\n"
-                        + "| |  | |" + " \\ V / " + "  | |  \n" +
-                        "| |  | |" + "  > <  " + "  | |  \n" +
-                        "| |__| |" + " / . \\ " + " _| |_ \n" +
-                        "|_____/ " + "/_/ \\_\\"
-                        + "|_____|\n"));
+        //Arrange
+        int arabic_number = 11;
+        String art11_res  = ( "__   __" +     " _____ \n" +
+                            "\\ \\ / /" +   "|_   _|\n" +
+                            " \\ V / " +    "  | |  \n" +
+                            "  > <  " +     "  | |  \n" +
+                            " / . \\ " +    " _| |_ \n" +
+                            "/_/ \\_\\"+    "|_____|\n");
+        //act
+        String ascii_art_for_11 = printer.print(arabic_number);
+        //assert
+        assertEquals(art11_res, ascii_art_for_11);
+        //assertEquals(ascii_art_for_11, art11_res);
     }
 
     @Test
     public void testLettersCombination56()
             throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
-        int arabic_number = 65;
-        String ascii_art_for_65 = printer.print(arabic_number);
-        assertEquals(ascii_art_for_65,
-                new String(" _      " + "__   __" + "__      __\n" +
-                        "| |     " + "\\ \\ / /" + "\\ \\    / /\n" +
-                        "| |     " + " \\ V / " + " \\ \\  / / \n" +
-                        "| |     " + "  > <  " + "  \\ \\/ /  \n" +
-                        "| |____ " + " / . \\ " + "   \\  /   \n" +
-                        "|______|" + "/_/ \\_\\" + "    \\/    \n"));
+        //arrange
+        int arabic_number = 126;
+        String art126_res = "  _____ " +  "__   __" +    "__   __" +     "__      __" +     " _____ \n"+
+                            " / ____|"+  "\\ \\ / /" +    "\\ \\ / /" + "\\ \\    / /" +   "|_   _|\n" +
+                            "| |     " +  " \\ V / " +   " \\ V / " +    " \\ \\  / / " +   "  | |  \n" +
+                            "| |     " +  "  > <  " +    "  > <  " +     "  \\ \\/ /  " +   "  | |  \n" +
+                            "| |____ " +  " / . \\ " +   " / . \\ " +    "   \\  /   " +    " _| |_ \n" +
+                            " \\_____|" + "/_/ \\_\\" + "/_/ \\_\\" +    "    \\/    "+     "|_____|\n";
+        //act
+        String ascii_art_for_126 = printer.print(arabic_number);
+        //assert
+        assertEquals(art126_res, ascii_art_for_126);
     }
 
     @Test(expected = NullPointerException.class)
@@ -150,12 +186,11 @@ public class RomanPrinterTest {
             printer.print(0);
         }
     }
-
     @Test(expected = NonRightCharacterException.class)
     public void testNonRightCharacters()
             throws NumberUnderZeroException, NumberOverThousand, NonRightCharacterException {
         try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
-            utilities.when(() -> IntegerToRoman.convert(0)).thenReturn("CIAO");
+            utilities.when(() -> IntegerToRoman.convert(0)).thenReturn("PROVA");
             printer.print(0);
         }
     }

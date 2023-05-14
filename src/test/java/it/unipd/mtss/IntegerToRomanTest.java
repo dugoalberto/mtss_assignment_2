@@ -15,7 +15,7 @@ public class IntegerToRomanTest {
 
     @Test(expected = NumberUnderZeroException.class)
     public void testNumberUnderZero() throws NumberUnderZeroException, NumberOverThousand {
-        int arabic_number = -5;
+        int arabic_number = -1;
         converter.convert(arabic_number);
     }
 
@@ -27,8 +27,12 @@ public class IntegerToRomanTest {
 
     @Test
     public void testZeroNumber() throws NumberUnderZeroException, NumberOverThousand {
+        //arrange
         int arabic_number = 0;
+        String res = ""; 
+        //act
         String roman_number = converter.convert(arabic_number);
-        assertEquals(roman_number, "");
+        //assert
+        assertEquals(roman_number, res);
     }
 }

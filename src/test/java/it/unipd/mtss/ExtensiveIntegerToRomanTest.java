@@ -21,22 +21,6 @@ public class ExtensiveIntegerToRomanTest {
     @Parameters
     public static Collection<String[]> testProvider() {
         String[][] tests = {
-                { "974", "CMLXXIV" },
-                { "150", "CL" },
-                { "516", "DXVI" },
-                { "398", "CCCXCVIII" },
-                { "404", "CDIV" },
-                { "37", "XXXVII" },
-                { "18", "XVIII" },
-                { "256", "CCLVI" },
-                { "887", "DCCCLXXXVII" },
-                { "116", "CXVI" },
-                { "44", "XLIV" },
-                { "678", "DCLXXVIII" },
-                { "939", "CMXXXIX" },
-                { "412", "CDXII" },
-                { "213", "CCXIII" },
-                { "24", "XXIV" },
                 { "1", "I" },
                 { "2", "II" },
                 { "3", "III" },
@@ -74,14 +58,15 @@ public class ExtensiveIntegerToRomanTest {
                 { "800", "DCCC" },
                 { "900", "CM" },
                 { "999", "CMXCIX" },
-                { "492", "CDXCII" },
-                { "399", "CCCXCIX" },
-                { "87", "LXXXVII" },
-                { "957", "CMLVII" },
-                { "146", "CXLVI" },
-                { "329", "CCCXXIX" },
+                { "1000", "M" },
+                { "66", "LXVI" },
+                { "222", "CCXXII" },
+                { "376", "CCCLXXVI" },
+                { "565", "DLXV" },
+                { "119", "CXIX" },
+                { "126", "CXXVI" },
                 { "574", "DLXXIV" },
-                { "681", "DCLXXXI" },
+                { "444", "CDXLIV" },
                 { "897", "DCCCXCVII" }
         };
         return Arrays.asList(tests);
@@ -89,8 +74,11 @@ public class ExtensiveIntegerToRomanTest {
 
     @Test
     public void testConvertFromArabicToRoman() throws NumberUnderZeroException, NumberOverThousand {
+        //arrange
         int arabic_number = input;
+        //act
         String roman_number = IntegerToRoman.convert(arabic_number);
+        //assert
         assertEquals(expectedOutput, roman_number);
     }
 }

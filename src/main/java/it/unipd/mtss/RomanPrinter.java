@@ -74,10 +74,7 @@ public class RomanPrinter {
             }
         }
         StringBuilder asciiArt = new StringBuilder();
-        // Ciclo per stampare le righe
         for (int i = 0; i < 6; i++) {
-            // Ciclo per stampare all' i-esima riga del carattere il singolo
-            // carattere
             for (int c = 0; c < romanNumber.length(); c++) {
                 asciiArt.append(converter.get(romanNumber.charAt(c))[i]);
             }
